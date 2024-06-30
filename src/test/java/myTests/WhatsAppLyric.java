@@ -4,12 +4,12 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WhatsAppLyric {
 	public static void main(String[] args) throws InterruptedException {
-		WebDriver driver = new EdgeDriver();
-		driver.manage().window().maximize();
+		WebDriver driver = new ChromeDriver();
+		// driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.get("https://web.whatsapp.com/");
 		Thread.sleep(50000);
@@ -18,10 +18,10 @@ public class WhatsAppLyric {
 		driver.findElement(By.xpath("//div[text()='Next']")).click();
 		Thread.sleep(60000);
 		driver.findElement(By.xpath("//span[text()='Bae']")).click();
-		String lyric="Mudhal nee mudivum nee Moondru kaalam nee Kadal nee karaiyum nee Kaatru kooda nee Manadhoram oru kaayam Unnai ennadha naal illaiyae Naanaga naanum illaiyae Vazhiyengum pala bimbam Adhil naan saaya thozh illaiyae Un pola yaarum illaiyae Males : Theera nadhi neethaanadi Neendhaamal naan moozhgi ponen Neethaanadi vaanil madhi Neeyalla naan thaanae theindhen Paadhi kaanagam Adhil kaanamal ponavan Oru paavai kaal thadam Adhai thedamal theinthavan Kaanadha baaram en nenjilae Thunai illa naan andrilae Naal ellaam pogum aanalum naan Uyir illadha udalae Mudhal nee mudivum nee Moondru kaalam nee Kadal nee karaiyum nee Kaatru kooda nee Dhoora desathil thozhainthaayo Kanmani Unai thedi kandathum En kannellaam minnmini Pinnokki kaalam pogum enil Un mannippai kooruven Kannokki nerai paarkkum kanam Pizhai ellaamae kalaiven Mudhal nee mudivum nee Moondru kaalam nee Kadal nee karaiyum nee Kaatru kooda nee Nagaradha kadigaaram Adhu pol naanum nindrirundhen Nee engu sendraai kannamma Azhagaana aridhaaram Velipaarvaikku poosi konden Punnaigaikku podhum kannamma Nee ketkavae en padalai Un aasai raagathil seidhen Un punnagai pon minnalai Naan korthu aangaangu neidhen Mudhal nee…eee… Mudivum nee…ee…ee…";
+		String lyric="Nallai allai.. nallai allai Nannilavae nee.. nallai allai Nallai allai.. nallai allai Nalliravae nee.. nallai allai Oligalin thedal enbadhellam Mounathil mudigindradhae Mounathin thedal enbadhellam Gnyaanathil mudigindradhae…aeeee…. Naan unnai thedum Velaiyilae nee Megam soodi Odivittaaiii… Nallai allai.. nallai allai Nannilavae nee.. nallai allai Nallai allai.. nallai allai Nalliravae nee.. nallai allai Mugai mugil Mottendra nilaigalilae Muganthoda kaathirundhen Malar endra nilai vittu Pooththirundhaai Manam kolla kaathirunthenn… Magarandham thedi Nugarum munnae Veyil kaattil veezhndhuvittaai… Nallai allai.. nallai allai Naarumpoovae nee… nallai allai Nallai allai…nallai allai Mullai kollai nee… nallai allai";
 		String[] splitLyric = lyric.split(" ");
 		for (int i = 0; i < splitLyric.length; i++) {
-			driver.findElement(By.xpath("(//p[@class='selectable-text copyable-text iq0m558w g0rxnol2'])[2]"))
+			driver.findElement(By.xpath("//div[@aria-label='Type a message']"))
 					.sendKeys(splitLyric[i]);
 			driver.findElement(By.xpath("//span[@data-icon='send']")).click();
 		}

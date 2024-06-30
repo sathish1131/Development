@@ -7,28 +7,15 @@ import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WhatsAppMessage {
 	public static String words() {
 		HashSet<String> words = new HashSet<>();
-		words.add("PattuKutty");
-		words.add("Thangamayilu");
-		words.add("Chellakutty");
-		words.add("Poonakutty");
-		words.add("Mayilukutty");
-		words.add("Maanukutty");
-		words.add("Theanukutty");
-		words.add("Kannukutty");
-		words.add("Mayilukunju");
-		words.add("Bujjukutty");
-		words.add("Pattukunju");
-		words.add("Mayilukunju");
-		words.add("Thangakunju");
-		words.add("Chellakunju");
-		words.add("Sry d...");
-		words.add("Luv u d...");
-		words.add("Bujjuty");
+		words.add("Lusu");
+		words.add("Paithiyam");
+		words.add("kiruki");
+		words.add("Pappa");
 		ArrayList<String> li=new ArrayList<>(words);
 		int ran=new Random().nextInt(li.size());
 		return li.get(ran);
@@ -36,7 +23,7 @@ public class WhatsAppMessage {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.get("https://web.whatsapp.com/");
@@ -45,11 +32,10 @@ public class WhatsAppMessage {
 		driver.findElement(By.xpath("//input[@aria-label='Type your phone number.']")).sendKeys("7639551131");
 		driver.findElement(By.xpath("//div[text()='Next']")).click();
 		Thread.sleep(60000);
-		driver.findElement(By.xpath("//span[text()='Greens']")).click();
-//		String[] message = {"Na msg panrathilaya d...","Ithu pothuma d...","Thanga pulla..."};
-		for (int i = 0; i < 1942 ; i++) {
+		driver.findElement(By.xpath("//span[text()='Bae']")).click();
+		for (int i = 0; i < 5000 ; i++) {
 //			for (int j = 0; j < message.length; j++) {
-				driver.findElement(By.xpath("(//p[@class='selectable-text copyable-text iq0m558w g0rxnol2'])[2]"))
+				driver.findElement(By.xpath("//div[@aria-label='Type a message']"))
 						.sendKeys(WhatsAppMessage.words());
 				driver.findElement(By.xpath("//span[@data-icon='send']")).click();
 //			}
